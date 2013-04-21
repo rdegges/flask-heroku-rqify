@@ -106,7 +106,7 @@ Either way, thanks!  <3
 
 ## Changelog
 
-v0.1: 04-18-2013
+v0.1: 04-21-2013
 
     - Pushing first release to PyPI!
     - Adding `init_rqify` handler to auto-configure Flask-RQ.
