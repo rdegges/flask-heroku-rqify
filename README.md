@@ -54,7 +54,7 @@ running locally (good for local development).
 - [Redis To Go](https://addons.heroku.com/redistogo)
 - [openredis](https://addons.heroku.com/openredis)
 
-**NOTE** My favorite providers are openredis and RedisGreen.
+**NOTE**: My favorite providers are openredis and RedisGreen.
 
 
 ## Usage
