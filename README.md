@@ -105,6 +105,10 @@ manager = Manager(app)
 def work():
     """Process the queue."""
     get_worker().work()
+
+
+if __name__ == '__main__':
+    manager.run()
 ```
 
 Then modify your `Procfile`, and add the following line:
