@@ -7,7 +7,7 @@ setup(
 
     # Basic package information:
     name = 'Flask-Heroku-RQify',
-    version = '0.1',
+    version = '0.2',
     py_modules = ('flask_rqify', ),
 
     # Packaging options:
