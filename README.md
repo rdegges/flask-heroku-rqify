@@ -85,6 +85,48 @@ To use the task defined above, you could do:
 >>> process.delay(2)
 ```
 
+Once you've defined your tasks, it's now time to boot up a worker process!  To
+do this, we'll use the
+[Flask-Script](http://flask-script.readthedocs.org/en/latest/) extension (which
+is installed automatically by `flask-heroku-rqify`).  In your project directory,
+create a new file named `manage.py`, and add the following:
+
+```python
+from flask.ext.rq import get_worker
+from flask.ext.script import Manager
+
+from myapp import app
+
+
+manager = Manager(app)
+
+
+@manager.command
+def work():
+    """Process the queue."""
+    get_worker().work()
+```
+
+Then modify your `Procfile`, and add the following line:
+
+```
+worker: python manage.py work
+```
+
+Now, to start processing your tasks on your new worker, you can finally just
+spin up a new worker process using `heroku scale`:
+
+```bash
+$ heroku scale worker=1
+```
+
+If you'd like to process your queue faster, you can add more workers at any
+time:
+
+```bash
+$ heroku scale worker=10
+```
+
 How does this work?  In the background, `flask-heroku-rqify` is really just
 automatically configuring the popular
 [Flask-RQ](https://flask-rq.readthedocs.org/en/latest/) extension!  This means,
