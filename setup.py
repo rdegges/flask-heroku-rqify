@@ -17,6 +17,7 @@ setup(
     # Package dependencies:
     install_requires = [
         'Flask-RQ==0.2',
+        'Flask-Script>=0.5.3',
     ],
 
     # Metadata for PyPI:
